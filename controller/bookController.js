@@ -12,7 +12,10 @@ const createBook = async (req, res) => {
 
 const editBook = async (req, res) => {
   const { id: bookID } = req.params;
-  const book = await Book.updateOne({ _id: bookID }, req.body);
+  const book = await Book.updateOne({ _id: bookID }, req.body, {
+    new: true,
+    runValidators: true,
+  });
   res.json({ success: true, msg: book });
 };
 
