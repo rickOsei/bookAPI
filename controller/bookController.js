@@ -2,7 +2,7 @@ const Book = require("../model/bookModel");
 
 const getAllBooks = async (req, res) => {
   const books = await Book.find({});
-  res.json({ msg: books });
+  res.json({ data: books });
 };
 
 const createBook = async (req, res) => {
